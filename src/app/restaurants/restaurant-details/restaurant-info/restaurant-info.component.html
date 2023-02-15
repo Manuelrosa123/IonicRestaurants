@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar></ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="restaurant">
+    <img [src]="restaurant.image">
+    <ion-card-content>
+      <ion-card-title>{{restaurant.description}}</ion-card-title>
+      <ion-card-subtitle>{{restaurant.cuisine }}</ion-card-subtitle>
+      <ion-card-content>
+        {{ restaurant.phone }}
+      </ion-card-content>
+      <ion-button expand="block" color="danger" (click)="delete()" *ngIf(restaurant.mine)>
+        <ion-icon name="trash" slot="start"></ion-icon>
+        <ion-label>Delete</ion-label>
+      </ion-button>
+    </ion-card-content>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img [src]="restaurant.creator?.avatar">
+      </ion-avatar>
+      <ion-label>{{ restaurant.creator?.name}}</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
